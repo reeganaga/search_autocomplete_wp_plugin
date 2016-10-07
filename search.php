@@ -50,7 +50,7 @@ class Search_Autocomplete_widget extends WP_Widget {
         ?>
         <form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>?action=ac_search_action" method="get">
             <div class="form-group">
-                <input id="Autocomplete1" type="text" name="cari" placeholder="type everything" class="form-control">
+                <input id="Autocomplete1" type="text" name="s" placeholder="type everything" class="form-control">
             </div>
             <input type="hidden" name="action" value="ac_search_action">
             <div class="form-group">
