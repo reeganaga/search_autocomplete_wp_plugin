@@ -112,14 +112,19 @@ add_action( 'widgets_init', 'register_search_autocomplete' );
 function adding_jquery_autocomplete() {
     
     // wp_enqueue_style( 'css_autocomplete', plugins_url().'/search_autocomplete/js/jquery.auto-complete.css');
-    wp_enqueue_script( 'jquery' );
-    wp_enqueue_script('jquery_autocomplete','https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'));
+    // wp_enqueue_script( 'jquery' );
+    // wp_enqueue_script('jquery_autocomplete','https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'));
     // wp_enqueue_script( 'jquery-ui-autocomplete' );
     
-    wp_register_style( 'css_autocomplete','http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
-    wp_enqueue_style( 'css_autocomplete');
+    // wp_register_style( 'css_autocomplete','http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+    // wp_enqueue_style( 'css_autocomplete');
 
-    wp_register_script('my-autocomplete', plugins_url().'/search_autocomplete/js/tes_jquery.js', array('jquery', 'jquery_autocomplete'),'1.0',false);
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-ui-autocomplete' ,array('jquery'));
+    wp_register_style( 'jquery-ui-styles','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
+    wp_enqueue_style( 'jquery-ui-styles' );
+
+    wp_register_script('my-autocomplete', plugins_url().'/search_autocomplete/js/tes_jquery.js', array('jquery', 'jquery-ui-autocomplete'),'1.0',false);
 
     wp_localize_script( 'my-autocomplete', 'MyAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'my-autocomplete' );
